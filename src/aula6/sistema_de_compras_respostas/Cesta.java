@@ -26,7 +26,7 @@ public class Cesta {
 			soma += item.getValor();
 		}
 		this.itens = new ArrayList<>();
-		return 0;
+		return soma;
 	}
 
 }

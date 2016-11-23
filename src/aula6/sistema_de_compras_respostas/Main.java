@@ -10,7 +10,7 @@ public class Main {
 		String[] linha = sc.nextLine().split(" ");
 		String op = linha[0];
 		String nome;
-		while (op != "SAIR") {
+		while (!op.equals("SAIR")) {
 			switch (op) {
 			case "CADASTRAR":
 				nome = linha[1];
