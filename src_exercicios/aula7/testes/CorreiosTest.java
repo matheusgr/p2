@@ -1,6 +1,5 @@
 package aula7.testes;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 /*

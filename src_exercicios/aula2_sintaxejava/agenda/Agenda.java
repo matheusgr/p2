@@ -1,7 +1,5 @@
 package aula2_sintaxejava.agenda;
 
-import java.util.Scanner;
-
 /*
 operacao = ""
 
