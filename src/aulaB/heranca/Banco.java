@@ -13,9 +13,9 @@ public class Banco {
 	
 	public void cadastra(String cpf, String tipo) {
 		if (tipo.equals("CC")) {
-			contas.put(cpf, new ContaCorrente(cpf, 2000));
+			contas.put(cpf, new ContaCorrente(cpf, 0, 2000));
 		} else if (tipo.equals("P")) {
-			contas.put(cpf, new Poupanca(cpf));
+			contas.put(cpf, new Poupanca(cpf, 0));
 		}
 	}
 

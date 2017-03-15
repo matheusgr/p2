@@ -2,14 +2,13 @@ package aulaB.heranca;
 
 public class Poupanca extends Conta {
 
-	public Poupanca(String cpf) {
-		super(cpf);
+	public Poupanca(String cpf, int valor) {
+		super(cpf, valor);
 	}
 
-	@Override
 	public void saca(int valor) {
-		if (this.getValor() >= valor) {
-			super.saca(valor);
+		if (this.valor >= 0) {
+			this.valor -= valor;
 		}
 	}
 	
