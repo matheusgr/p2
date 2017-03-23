@@ -4,7 +4,7 @@ public class Agenda {
 
 	private Registro[] registros = new Registro[1000];
 	private int cadastros = 0;
-	
+
 	public void apagaCadastro(int posicao) {
 		System.arraycopy(registros, posicao + 1, registros, posicao, cadastros - posicao);
 		cadastros -= 1;

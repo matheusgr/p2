@@ -9,7 +9,7 @@ public class Cesta {
 	public Cesta() {
 		this.itens = new ArrayList<>();
 	}
-	
+
 	public void coloca(Produto produto, int qtd) {
 		this.itens.add(new Item(produto, qtd));
 	}

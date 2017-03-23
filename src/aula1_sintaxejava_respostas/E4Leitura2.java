@@ -47,5 +47,5 @@ public class E4Leitura2 {
 		}
 		sc.close();
 	}
-	
+
 }

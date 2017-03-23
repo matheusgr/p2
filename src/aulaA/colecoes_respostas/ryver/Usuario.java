@@ -13,7 +13,7 @@ public class Usuario {
 	public String getNome() {
 		return this.nome;
 	}
-	
+
 	public String getStatus() {
 		return this.status;
 	}
@@ -43,6 +43,4 @@ public class Usuario {
 		return true;
 	}
 
-	
-	
 }

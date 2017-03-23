@@ -23,7 +23,7 @@ public class CorreiosTest {
 		correios.enviaPacote("Teste", 20);
 		Assert.assertEquals(1, correios.listaPacotes().length);
 	}
-	
+
 	@Test
 	public void testarEnvioComDoisPacotes() {
 		Correios correios = new Correios();
@@ -33,7 +33,7 @@ public class CorreiosTest {
 		correios.enviaPacote("Teste2", 30);
 		Assert.assertEquals(2, correios.listaPacotes().length);
 	}
-	
+
 	@Test
 	public void testarEnvioComDoisPacotesComNomeEPesoIguais() {
 		Correios correios = new Correios();
@@ -51,17 +51,17 @@ public class CorreiosTest {
 		Pacote outroPacote = new Pacote("Pacote", 5);
 		Assert.assertEquals(50.0, outroPacote.getPreco(), 0.001);
 	}
-	
+
 	@Test
 	public void testPrecoDezMaisQuinzePorQuilo() {
 		Pacote pacote = new Pacote("Pacote", 6);
 		Assert.assertEquals(65.0, pacote.getPreco(), 0.001);
 	}
-	
-	@Test(expected=RuntimeException.class)
+
+	@Test(expected = RuntimeException.class)
 	public void testZeroQuilos() {
 		new Pacote("Pacote", 0);
 		Assert.assertFalse(true);
 	}
-	
+
 }

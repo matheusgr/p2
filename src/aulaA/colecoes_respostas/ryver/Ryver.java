@@ -16,7 +16,7 @@ public class Ryver {
 		this.usuarios = new HashMap<String, Usuario>();
 		this.canais = new HashMap<String, Canal>();
 	}
-	
+
 	/**
 	 * Adiciona um usuário. Não importa para o sistema a ordem que os usuários
 	 * são inseridos. Ainda, ao inserir um nome que já existe, isso sobrescreve
@@ -26,7 +26,7 @@ public class Ryver {
 	 *            Nome do usuário a ser adicionado.
 	 * @param status
 	 *            Status do usuário no sistema.
-	 * @return 
+	 * @return
 	 */
 	public boolean adicionaUsuario(String nomeUsuario, String status) {
 		Usuario novoUsuario = new Usuario(nomeUsuario, status);

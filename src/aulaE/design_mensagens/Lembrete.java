@@ -9,7 +9,7 @@ public class Lembrete implements Serializable {
 	public Lembrete(String msg) {
 		this.msg = msg;
 	}
-	
+
 	@Override
 	public String toString() {
 		return this.msg;

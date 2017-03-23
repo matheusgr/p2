@@ -22,10 +22,10 @@ public class E5LoopIndefinido {
 		while (idade != 0) {
 			soma += idade;
 			qntd += 1;
-			System.out.println("media atual: " + (soma/qntd));
+			System.out.println("media atual: " + (soma / qntd));
 			idade = sc.nextInt();
 		}
 		sc.close();
 	}
-	
+
 }

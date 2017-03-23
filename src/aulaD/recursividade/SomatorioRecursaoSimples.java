@@ -8,9 +8,9 @@ public class SomatorioRecursaoSimples {
 		}
 		return comeco + soma(comeco + 1, fim);
 	}
-	
+
 	public static void main(String[] args) {
 		System.out.println(soma(1, 10));
 	}
-	
+
 }

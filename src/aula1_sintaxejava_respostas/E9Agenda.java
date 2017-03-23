@@ -23,11 +23,9 @@ public class E9Agenda {
 		String[] telefones = new String[1000];
 		int cadastros = 0;
 		do {
-			System.out.println("* (C)ADASTRAR NOME/TELEFONE" + System.lineSeparator() +
-							   "* (I)MPRIMIR NOMES/TELEFONES" + System.lineSeparator() +
-							   "* (P)ROCURAR NOME/TELEFONE" + System.lineSeparator() +
-							   "* (A)PAGAR NOME/TELEFONE" + System.lineSeparator() +
-							   "* (S)AIR");
+			System.out.println("* (C)ADASTRAR NOME/TELEFONE" + System.lineSeparator() + "* (I)MPRIMIR NOMES/TELEFONES"
+					+ System.lineSeparator() + "* (P)ROCURAR NOME/TELEFONE" + System.lineSeparator()
+					+ "* (A)PAGAR NOME/TELEFONE" + System.lineSeparator() + "* (S)AIR");
 			op = sc.nextLine();
 			switch (op) {
 			case "C":
@@ -70,5 +68,5 @@ public class E9Agenda {
 		} while (!op.equals("S"));
 		sc.close();
 	}
-	
+
 }

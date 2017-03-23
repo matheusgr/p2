@@ -6,10 +6,10 @@ public class Mensagem {
 	private String texto;
 
 	public Mensagem(Usuario usuario, String texto) {
-			this.usuario = usuario;
-			this.texto = texto;
+		this.usuario = usuario;
+		this.texto = texto;
 	}
-	
+
 	@Override
 	public String toString() {
 		return this.usuario.getNome() + ": " + this.texto;

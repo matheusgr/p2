@@ -21,5 +21,5 @@ public class E1Atribuicao {
 		System.out.println("idade: " + minhaIdade);
 		System.out.println("peso: " + meuPeso);
 	}
-	
+
 }

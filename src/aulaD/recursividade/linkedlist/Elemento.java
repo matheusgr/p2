@@ -25,7 +25,7 @@ public class Elemento {
 			}
 		}
 	}
-	
+
 	public String toString() {
 		if (this.prox == null) {
 			return this.valor + "";
@@ -42,7 +42,7 @@ public class Elemento {
 		e.add(new Elemento(2));
 		e.add(new Elemento(10));
 		System.out.println(e);
-		
+
 	}
 
 }

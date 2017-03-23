@@ -11,7 +11,7 @@ public class SistemaDeCompras {
 		this.produtos = new ArrayList<>();
 		this.cesta = new Cesta();
 	}
-	
+
 	public void cadastra(String nome, double preco) {
 		this.produtos.add(new Produto(nome, preco));
 	}

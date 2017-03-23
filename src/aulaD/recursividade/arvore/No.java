@@ -26,7 +26,7 @@ public class No {
 			}
 		}
 	}
-	
+
 	public boolean contains(int valor) {
 		if (this.valor == valor) {
 			return true;
@@ -50,29 +50,41 @@ public class No {
 		// pre ordem
 		String retorno = "";
 		retorno += " " + this.valor;
-		if (this.menor != null) { retorno += " " + menor.toString(); }
-		if (this.maior != null) { retorno += " " + maior.toString(); }		
+		if (this.menor != null) {
+			retorno += " " + menor.toString();
+		}
+		if (this.maior != null) {
+			retorno += " " + maior.toString();
+		}
 		return retorno;
 	}
-	
+
 	public String toStringEmOrdem() {
 		// em ordem
 		String retorno = "";
-		if (this.menor != null) { retorno += " " + menor.toStringEmOrdem(); }
+		if (this.menor != null) {
+			retorno += " " + menor.toStringEmOrdem();
+		}
 		retorno += " " + this.valor;
-		if (this.maior != null) { retorno += " " + maior.toStringEmOrdem(); }		
+		if (this.maior != null) {
+			retorno += " " + maior.toStringEmOrdem();
+		}
 		return retorno;
 	}
-	
+
 	public String toStringPosOrdem() {
 		// pós ordem
 		String retorno = "";
-		if (this.menor != null) { retorno += " " + menor.toStringPosOrdem(); }
-		if (this.maior != null) { retorno += " " + maior.toStringPosOrdem(); }		
+		if (this.menor != null) {
+			retorno += " " + menor.toStringPosOrdem();
+		}
+		if (this.maior != null) {
+			retorno += " " + maior.toStringPosOrdem();
+		}
 		retorno += " " + this.valor;
 		return retorno;
 	}
-	
+
 	public static void main(String[] args) {
 		No no = new No(5);
 		no.add(new No(10));
@@ -80,15 +92,15 @@ public class No {
 		no.add(new No(2));
 		no.add(new No(3));
 		no.add(new No(1));
-		
+
 		System.out.println(7 + " " + no.contains(7));
-		System.out.println(1  + " " + no.contains(1));
-		System.out.println(10  + " " + no.contains(10));
-		System.out.println(5  + " " + no.contains(5));
-		System.out.println(8  + " " + no.contains(8));
-		
+		System.out.println(1 + " " + no.contains(1));
+		System.out.println(10 + " " + no.contains(10));
+		System.out.println(5 + " " + no.contains(5));
+		System.out.println(8 + " " + no.contains(8));
+
 		System.out.println(no);
-		
+
 	}
 
 }

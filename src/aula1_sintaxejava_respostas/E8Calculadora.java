@@ -55,5 +55,5 @@ public class E8Calculadora {
 		}
 		sc.close();
 	}
-	
+
 }

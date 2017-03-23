@@ -24,9 +24,9 @@ public class Conta {
 	}
 
 	/*
-	 * Pq getCPF? se o atributo cpf fosse publico qualquer pessoa
-	 * de fora poderia alterar o cpf. Deixamos o atributo privado
-	 * de forma que o valor seja acessível apenas através do getCPF.
+	 * Pq getCPF? se o atributo cpf fosse publico qualquer pessoa de fora
+	 * poderia alterar o cpf. Deixamos o atributo privado de forma que o valor
+	 * seja acessível apenas através do getCPF.
 	 */
 	public String getCPF() {
 		return cpf;
@@ -34,7 +34,7 @@ public class Conta {
 
 	@Override
 	public String toString() {
-		return  "CPF (" + this.cpf + "): " + this.valor;
+		return "CPF (" + this.cpf + "): " + this.valor;
 	}
-	
+
 }

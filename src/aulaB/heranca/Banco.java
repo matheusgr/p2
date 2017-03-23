@@ -10,7 +10,7 @@ public class Banco {
 	public Banco() {
 		contas = new HashMap<>();
 	}
-	
+
 	public void cadastra(String cpf, String tipo) {
 		if (tipo.equals("CC")) {
 			contas.put(cpf, new ContaCorrente(cpf, 0, 2000));

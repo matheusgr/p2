@@ -18,7 +18,7 @@ public class ProcessaDiretorioRecursaoSimples {
 				System.out.println(">>> " + lnr.readLine());
 			} finally {
 				if (fr != null) {
-					fr.close();				
+					fr.close();
 				}
 			}
 			return;
@@ -30,9 +30,9 @@ public class ProcessaDiretorioRecursaoSimples {
 			processa(fDir);
 		}
 	}
-	
+
 	public static void main(String[] args) throws IOException {
 		processa(new File("src"));
 	}
-	
+
 }

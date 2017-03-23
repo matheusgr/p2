@@ -19,16 +19,16 @@ public class E5Loop {
 		for (int i = 0; i < idadesStr.length; i++) {
 			soma += Integer.parseInt(idadesStr[i]);
 		}
-		
+
 		// Alternativa:
 		soma = 0;
 		for (String idadeStr : idadesStr) {
 			soma += Integer.parseInt(idadeStr);
 		}
 		// fim do jeito alternativo
-		
+
 		System.out.println("media: " + (soma / idadesStr.length));
 		sc.close();
 	}
-	
+
 }

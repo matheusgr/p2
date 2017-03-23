@@ -25,5 +25,5 @@ public class E4Leitura {
 		}
 		sc.close();
 	}
-	
+
 }

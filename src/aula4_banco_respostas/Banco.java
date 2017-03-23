@@ -4,12 +4,12 @@ public class Banco {
 
 	private Conta[] contas;
 	private int contasCadastradas;
-	
+
 	public Banco() {
 		contas = new Conta[1000];
 		contasCadastradas = 0;
 	}
-	
+
 	public void cadastra(String cpf) {
 		Conta contaACadastrar;
 		if (contasCadastradas < 100) {

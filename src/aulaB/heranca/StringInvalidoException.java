@@ -8,7 +8,7 @@ public class StringInvalidoException extends RuntimeException {
 		super(string);
 		this.valor = valor;
 	}
-	
+
 	@Override
 	public String getMessage() {
 		return "DEU PAU!";

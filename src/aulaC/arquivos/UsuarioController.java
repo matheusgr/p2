@@ -8,12 +8,12 @@ public class UsuarioController {
 	private Map<String, Usuario> usuarios;
 	private Usuario logado;
 	private Persistencia persistencia;
-	
+
 	public UsuarioController() {
 		this.usuarios = new HashMap<>();
 		this.persistencia = new Persistencia("data");
 	}
-	
+
 	public void login(String nome) {
 		if (!usuarios.containsKey(nome)) {
 			usuarios.put(nome, new Usuario(nome));
@@ -39,8 +39,7 @@ public class UsuarioController {
 
 	public void carregar() throws PersistenciaException {
 		this.persistencia.carregar(this.logado);
-		
-	}
 
+	}
 
 }

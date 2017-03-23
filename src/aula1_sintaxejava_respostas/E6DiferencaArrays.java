@@ -30,7 +30,7 @@ public class E6DiferencaArrays {
 		}
 		return resultado;
 	}
-	
+
 	public static int[] recebeIdades() {
 		Scanner sc = new Scanner(System.in);
 		String[] idadesStr = sc.nextLine().split(" ");
@@ -41,11 +41,11 @@ public class E6DiferencaArrays {
 		sc.close();
 		return idades;
 	}
-	
+
 	public static void main(String[] args) {
 		int[] idades1 = recebeIdades();
 		int[] idades2 = recebeIdades();
 		System.out.println(Arrays.toString(diferencaIdades(idades1, idades2)));
 	}
-	
+
 }

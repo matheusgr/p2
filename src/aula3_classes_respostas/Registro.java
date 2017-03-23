@@ -15,7 +15,7 @@ public class Registro {
 	}
 
 	public String print() {
-		return "NOME: " + nome + System.lineSeparator() +   "TELEFONE: " + telefone;	
+		return "NOME: " + nome + System.lineSeparator() + "TELEFONE: " + telefone;
 	}
-	
+
 }

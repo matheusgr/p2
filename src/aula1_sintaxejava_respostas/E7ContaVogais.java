@@ -17,16 +17,13 @@ public class E7ContaVogais {
 		String palavra = sc.nextLine();
 		int vogais = 0;
 		for (int i = 0; i < palavra.length(); i++) {
-			if (palavra.charAt(i) == 'a' ||
-					palavra.charAt(i) == 'e' ||
-					palavra.charAt(i) == 'i' ||
-					palavra.charAt(i) == 'o' ||
-					palavra.charAt(i) == 'u') {
+			if (palavra.charAt(i) == 'a' || palavra.charAt(i) == 'e' || palavra.charAt(i) == 'i'
+					|| palavra.charAt(i) == 'o' || palavra.charAt(i) == 'u') {
 				vogais += 1;
 			}
 		}
 		System.out.println(vogais + " vogais");
 		sc.close();
 	}
-	
+
 }

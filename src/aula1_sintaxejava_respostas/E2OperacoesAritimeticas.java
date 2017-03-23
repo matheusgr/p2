@@ -16,5 +16,5 @@ public class E2OperacoesAritimeticas {
 		double bmi = meuPeso / (minhaAltura * minhaAltura);
 		System.out.println(bmi);
 	}
-	
+
 }

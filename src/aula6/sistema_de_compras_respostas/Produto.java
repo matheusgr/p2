@@ -17,7 +17,5 @@ public class Produto {
 	public double getPreco() {
 		return preco;
 	}
-	
-	
 
 }

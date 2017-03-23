@@ -24,5 +24,5 @@ public class E3Condicional {
 			System.out.println("peso sob controle");
 		}
 	}
-	
+
 }
