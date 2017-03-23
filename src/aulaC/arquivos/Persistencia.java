@@ -19,6 +19,7 @@ public class Persistencia {
 		FileOutputStream fos = null;
 		try {
 			fos = new FileOutputStream(this.diretorio + File.separator + logado.getLogin() + ".txt");
+			@SuppressWarnings("resource")
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
 			oos.writeObject(logado);
 		} catch (IOException e) {
@@ -38,6 +39,7 @@ public class Persistencia {
 		FileInputStream fis;
 		try {
 			fis = new FileInputStream(this.diretorio + File.separator + logado.getLogin() + ".txt");
+			@SuppressWarnings("resource")
 			ObjectInputStream ois = new ObjectInputStream(fis);
 			logado.setLembretes(((Usuario) ois.readObject()).getLembretes());
 		} catch (IOException | ClassNotFoundException e) {

@@ -2,11 +2,13 @@ package aulaB.heranca;
 
 public class StringInvalidoException extends RuntimeException {
 
-	private int valor;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	public StringInvalidoException(String string, int valor) {
 		super(string);
-		this.valor = valor;
 	}
 
 	@Override

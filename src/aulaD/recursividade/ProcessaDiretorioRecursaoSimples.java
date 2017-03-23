@@ -14,6 +14,7 @@ public class ProcessaDiretorioRecursaoSimples {
 			try {
 				fr = new FileReader(arquivo);
 				BufferedReader br = new BufferedReader(fr);
+				@SuppressWarnings("resource")
 				LineNumberReader lnr = new LineNumberReader(br);
 				System.out.println(">>> " + lnr.readLine());
 			} finally {

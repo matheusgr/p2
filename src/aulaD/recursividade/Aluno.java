@@ -66,6 +66,7 @@ public class Aluno {
 		Aluno A1 = new Aluno("A1", 9.5, A2);
 		System.out.println(A1.toString());
 		System.out.println(A1.toStringReverso());
+		System.out.print(A1.maiorPaq());
 		System.out.print(A1.mediaPaquerabilidade());
 		System.out.print(A1.mediaPaqRecursiva());
 	}
