@@ -53,16 +53,9 @@ public class DisciplinaTest {
 		assertTrue(d.aprovado());		
 	}
 	
-	@Test
+	@Test(expected=NullPointerException.class)
 	public void testConstrutorNulo() {
-		try {
-			new Disciplina(null);
-			// Uma exceção dentro do código da linha de cima, interrompe
-			// a execução do código... e a linha de baixo não será executada
-			fail("Não deve ser possível criar disciplinas com nome nulo");
-		} catch (NullPointerException npe) {
-			// Como a exceção foi capturada, o código continua executando daqui.			
-		}
+		new Disciplina(null);		
 	}
 	
 	@Test

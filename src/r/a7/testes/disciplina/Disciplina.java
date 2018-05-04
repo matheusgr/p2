@@ -11,6 +11,9 @@ public class Disciplina {
 		if (nome == null) {
 			throw new NullPointerException("Nome nulo");
 		}
+		if  (nome.trim().equals("")) {
+			throw new IllegalArgumentException("Nome invalido");
+		}
 		this.nome = nome;
 		this.notas = new double[4];
 	}
@@ -49,4 +52,9 @@ public class Disciplina {
 		this.notas[i-1] = d;
 	}
 
+	@Override
+	public String toString() {
+		return "Disciplina [nome=" + nome + "]";
+	}
+	
 }
