@@ -1,4 +1,4 @@
-package r.b3.interfaces;
+package r.b3.interfaces.banco;
 import java.util.Comparator;
 
 public class OrdenaContasMaiorSaldo implements Comparator<Contabil> {

@@ -1,4 +1,4 @@
-package r.b3.interfaces;
+package r.b3.interfaces.banco;
 
 public abstract class Conta implements Contabil {
 

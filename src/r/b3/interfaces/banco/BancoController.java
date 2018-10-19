@@ -1,4 +1,4 @@
-package r.b3.interfaces;
+package r.b3.interfaces.banco;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
