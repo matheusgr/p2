@@ -60,35 +60,33 @@ public class Inventario {
 				int posicao = procuraPosicao(maquina, maquinas);
 				maquinas[posicao].ocupa(entrada.split(" ")[2]);
 			} else if (entrada.startsWith("LIBERA")) {
-				String maquina = entrada.split(" ")[1];
+//				String maquina = entrada.split(" ")[1];
 //				int posicao = procuraPosicao(maquina, maquinasCadastradas, qtdMaquinasCadastradas);
 //				maquinasStatus[posicao] = "UP";
 //				maquinasOcupadas[posicao] = null;
 			} else if (entrada.startsWith("DOWN")) {
-				String maquina = entrada.split(" ")[1];
+//				String maquina = entrada.split(" ")[1];
 //				int posicao = procuraPosicao(maquina, maquinasCadastradas, qtdMaquinasCadastradas);
 //				maquinasStatus[posicao] = "DOWN";
 			} else if (entrada.startsWith("SAIR")) {
 				break;
 			} else if (entrada.startsWith("LISTA")) {
-//				listaMaquinas(qtdMaquinasCadastradas, maquinasCadastradas, maquinasStatus, maquinasOcupadas);
+				listaMaquinas(qtdMaquinasCadastradas, maquinas);
 			} else {
 				System.out.println("Comando invalido");
 			}
 			entrada = sc.nextLine();
 		}
+		sc.close();
 	}
 
-	private static void listaMaquinas(int qtdMaquinasCadastradas, String[] maquinasCadastradas, String[] maquinasStatus, String[] maquinasOcupadas) {
+	private static void listaMaquinas(int qtdMaquinasCadastradas, Maquina[] maquinas) {
 		for (int i = 0; i < qtdMaquinasCadastradas; i++) {
-			String maquina = maquinasCadastradas[i];
-			String status = maquinasStatus[i];
-			if (status == null) {
-				System.out.println(maquina + " DOWN");
-			} else if ("OCUPA".equals(status)) {
-				System.out.println(maquina + " UP " + maquinasOcupadas[i]);
+			Maquina maquina = maquinas[i];
+			if (maquina.isOcupada()) {
+				System.out.println(maquina + " UP " + maquina.getOcupante());				
 			} else {
-				System.out.println(maquina + " " + status);
+				System.out.println(maquina + " " + maquina.getStatus());
 			}
 		}
 	}

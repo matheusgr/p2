@@ -20,24 +20,29 @@ public class Main {
 				}
 				String desc = sc2.nextLine();
 				loja.cadastrarJogo(cod, nome, desc);
+				sc2.close();
 			} else if (comando.startsWith("alugar")) {
 				Scanner sc2 = new Scanner(comando);
 				sc2.next();
 				int cod = sc2.nextInt();
 				loja.alugarJogo(cod);
+				sc2.close();
 			} else if (comando.startsWith("devolver")) {
 				Scanner sc2 = new Scanner(comando);
 				sc2.next();
 				int cod = sc2.nextInt();
 				loja.devolverJogo(cod);
+				sc2.close();
 			} else if (comando.startsWith("quantidade")) {
 				Scanner sc2 = new Scanner(comando);
 				sc2.next();
 				int cod = sc2.nextInt();
 				System.out.println(loja.getQtdAlugueisJogo(cod));
+				sc2.close();
 			}
 			comando = sc.nextLine();
 		}
+		sc.close();
 	}
 	
 }

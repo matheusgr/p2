@@ -54,11 +54,13 @@ public class Exemplos {
 		while ((charRead = reader.read()) != -1) {
 			System.out.print((char) charRead);
 		}
+		reader.close();
 	}
 
 	public static void exemplo4Escrita() throws IOException {
 		FileWriter writer = new FileWriter(new File("Notes.txt"), true);
 		writer.write("Java FileWriter Examples");
+		writer.close();
 	}
 
 	public static void exemplo4Nio() throws IOException {

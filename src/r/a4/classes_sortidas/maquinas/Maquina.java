@@ -42,6 +42,18 @@ public class Maquina {
 		return "Maquina [nome=" + nome + ", status=" + status + "]";
 	}
 
+	public String getStatus() {
+		return this.status;
+	}
+
+	public String getOcupante() {
+		return this.ocupante;
+	}
+
+	public boolean isOcupada() {
+		return this.ocupante != null;
+	}
+
 	
 	
 }

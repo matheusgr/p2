@@ -6,7 +6,7 @@ public class Main {
 		Robo or15 = new Robo("OR15", 150, 12);
 		Robo bastion = new Robo("Bastion", 300, 35);
 		try {
-			Robo bastion2 = new Robo("Bastion", 300, 35);
+			new Robo("Bastion", 300, 35);
 		} catch (IllegalArgumentException re) {
 			System.out.println("Opsss...");
 		}

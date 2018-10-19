@@ -40,6 +40,7 @@ public class Main {
 				String nome = scLinha.nextLine().trim();
 				Musica musica = new Musica(duracao, nome);
 				c.adicionaMusica(musica);
+				scLinha.close();
 			} else if (entrada.startsWith("ALTERAR")) {
 				// ALTERAR 0 Diamantes
 				Scanner scLinha = new Scanner(entrada);
@@ -47,11 +48,13 @@ public class Main {
 				int pos = scLinha.nextInt();
 				String novoNome = scLinha.nextLine().trim();
 				c.alteraMusica(pos, novoNome);
+				scLinha.close();
 			} else if (entrada.startsWith("LISTAR")) {
 				System.out.println(c.listaMusicas());
 			}
 			entrada = sc.nextLine();
 		}
+		sc.close();
 	}
 
 }

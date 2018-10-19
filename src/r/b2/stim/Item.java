@@ -14,4 +14,11 @@ public class Item {
 		return this.valor;
 	}
 
+	@Override
+	public String toString() {
+		return "Item [id=" + id + ", valor=" + valor + "]";
+	}
+
+	
+	
 }

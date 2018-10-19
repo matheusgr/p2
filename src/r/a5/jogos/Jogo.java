@@ -32,4 +32,11 @@ public class Jogo {
 		return this.alugueis;
 	}
 
+	@Override
+	public String toString() {
+		return "Jogo [cod=" + cod + ", nome=" + nome + ", desc=" + desc + ", alugueis=" + alugueis + "]";
+	}
+
+	
+	
 }

@@ -18,6 +18,7 @@ public class Malote {
 		int acima = acimaDaMedia(entradas, qtd, media);
 		System.out.println(soma + " " + media + " " + acima);
 		System.out.printf("%d %.2f %d", soma, media, acima);
+		sc.close();
 	}
 
 	private static int acimaDaMedia(int[] entradas, int qtd, double media) {

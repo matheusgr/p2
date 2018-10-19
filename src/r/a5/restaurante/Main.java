@@ -39,6 +39,7 @@ public class Main {
 			linhaUsuario = sc.nextLine();
 			comando = linhaUsuario.split(" ")[0];
 		}
+		sc.close();
 	}
 
 	private static void altera(String linhaUsuario, Cardapio cardapio) {
@@ -47,6 +48,7 @@ public class Main {
 		String codigo = sc.next();
 		double valor = sc.nextDouble();
 		cardapio.alteraValor(codigo, valor);
+		sc.close();
 	}
 
 	private static String exibe(Cardapio cardapio) {
@@ -64,6 +66,7 @@ public class Main {
 		int numPessoas = sc.nextInt();
 		String descr = sc.nextLine();
 		cardapio.cadastraRefeicao(codigo, valor, numPessoas, descr);
+		sc.close();
 	}
 
 }

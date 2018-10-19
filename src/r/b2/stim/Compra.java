@@ -10,4 +10,11 @@ public class Compra {
 		this.valor = (int) (valor * (1 + desconto));
 	}
 
+	@Override
+	public String toString() {
+		return "Compra [item=" + item + ", valor=" + valor + "]";
+	}
+
+	
+	
 }

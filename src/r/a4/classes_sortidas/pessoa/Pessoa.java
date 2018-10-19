@@ -8,16 +8,12 @@ public class Pessoa {
 	private int anoNascimento;
 	private Endereco endereco;
 	private Funcao funcao;
-	private int mediaSalario;
 
 	public Pessoa(String nome, int anoNascimento, Endereco endereco, String funcao, int salario, int numeroEmpregos) {
 		this.nome = nome;
 		this.anoNascimento = anoNascimento;
 		this.endereco = endereco;
 		this.funcao = new Funcao(funcao);
-		if (numeroEmpregos != 0) {
-			this.mediaSalario = salario / numeroEmpregos;
-		}
 	}
 	
 	public int getBonus() {

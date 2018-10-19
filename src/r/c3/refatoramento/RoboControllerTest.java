@@ -1,16 +1,15 @@
 package r.c3.refatoramento;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
 
-import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
 
 public class RoboControllerTest {
 
 	private RoboController roboController;
 
-	@Before
+	@BeforeEach
 	public void prepara() {
 		this.roboController = new RoboController();
 		this.roboController.criarRobo("abc", 20);

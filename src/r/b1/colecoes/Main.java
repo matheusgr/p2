@@ -3,13 +3,11 @@ package r.b1.colecoes;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.Scanner;
 
 public class Main {
 
 	public static void main(String[] args) {
-		LinkedList<String> outraLista = new LinkedList<>();
 		ArrayList<String> minhaLista = new ArrayList<>();
 		minhaLista.add("123456");
 		Scanner sc = new Scanner(System.in);
@@ -19,7 +17,7 @@ public class Main {
 		System.out.println(minhaLista.get(0).getClass());
 		minhaLista.set(0, "1234");
 		System.out.println(minhaLista);
-		String s = minhaLista.get(0);
+		System.out.println(minhaLista.get(0));
 		
 		for (String e : minhaLista) {
 			System.out.println(e);
@@ -55,10 +53,7 @@ public class Main {
 			}
 			System.out.println(res);
 		}
-		
-		
-		
-		
+		sc.close();	
 	}
 	
 }

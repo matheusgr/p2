@@ -1,7 +1,5 @@
 package r.a4.classes_sortidas.maquinas;
 
-import java.util.Scanner;
-
 public class Demo {
 
 	public static void main(String[] args) {
