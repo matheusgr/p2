@@ -1,0 +1,15 @@
+package r.b3.interfaces.ingresso;
+
+public abstract class IngressoAbstrato implements Ingresso {
+
+	private String id;
+
+	public IngressoAbstrato(String id) {
+		this.id = id;
+	}
+	
+	public String getId() {
+		return "" + this.id;
+	}
+	
+}
