@@ -27,5 +27,12 @@ public class Aluno {
 	public boolean idadeENotaApropriada(int notaAdequada) {
 		return (this.idade > 20 && this.nota >= notaAdequada);
 	}
+
+	public void setNome(String string) {
+		if (string == null || string.trim().equals("")) {
+			throw new IllegalArgumentException("Nome invalido");
+		}
+		this.nome = string;
+	}
 	
 }
