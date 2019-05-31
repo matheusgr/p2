@@ -31,9 +31,9 @@ expectError "Erro ao exibir pessoa: dni nao pode ser vazio ou nulo" exibirPessoa
 
 # dni invalido
 expectError "Erro ao exibir pessoa: dni invalido" exibirPessoa dni=" 22222222-0"
-expectError "Erro ao cadastrar deputado: dni invalido" exibirPessoa dni="A22222222-0"
-expectError "Erro ao cadastrar deputado: dni invalido" exibirPessoa dni="022222222-A"
-expectError "Erro ao cadastrar deputado: dni invalido" exibirPessoa dni="022222222-."
+expectError "Erro ao exibir pessoa: dni invalido" exibirPessoa dni="A22222222-0"
+expectError "Erro ao exibir pessoa: dni invalido" exibirPessoa dni="022222222-A"
+expectError "Erro ao exibir pessoa: dni invalido" exibirPessoa dni="022222222-."
 
 # salva o sistema em arquivos
 salvarSistema
