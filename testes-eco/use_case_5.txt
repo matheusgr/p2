@@ -1,4 +1,4 @@
-# carrega o sistema
+﻿# carrega o sistema
 carregarSistema
 
 # Cadastrando Pessoas
@@ -39,8 +39,8 @@ expectError "Erro ao cadastrar comissao: pessoa inexistente" cadastrarComissao t
 expectError "Erro ao cadastrar comissao: pessoa inexistente" cadastrarComissao tema="Mulher7" politicos="050000000-0,050000001-0"
 
 # DNI de uma pessoa que não é política.
-expectError "Erro ao cadastrar comissao: pessoa nao eh deputado" cadastrarComissao tema="CCJCC" politicos="051333333-0,051444444-0"
-expectError "Erro ao cadastrar comissao: pessoa nao eh deputado" cadastrarComissao tema="CCJCC" politicos="051222222-0,051111111-0"
+expectError "Erro ao cadastrar comissao: pessoa nao eh deputado" cadastrarComissao tema="CFT" politicos="051333333-0,051444444-0"
+expectError "Erro ao cadastrar comissao: pessoa nao eh deputado" cadastrarComissao tema="CFT" politicos="051222222-0,051111111-0"
 
 # Precedencia
 expectError "Erro ao cadastrar comissao: tema nao pode ser vazio ou nulo" cadastrarComissao tema="" politicos="051444444-0"
