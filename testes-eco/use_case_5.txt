@@ -1,4 +1,4 @@
-# carrega o sistema
+﻿# carrega o sistema
 carregarSistema
 
 # Cadastrando Pessoas
@@ -49,7 +49,7 @@ expectError "Erro ao cadastrar comissao: tema nao pode ser vazio ou nulo" cadast
 expectError "Erro ao cadastrar comissao: tema nao pode ser vazio ou nulo" cadastrarComissao tema="" politicos="050000000-0"
 expectError "Erro ao cadastrar comissao: tema nao pode ser vazio ou nulo" cadastrarComissao tema="" politicos="051222222-0,051111111-0"
 expectError "Erro ao cadastrar comissao: lista de politicos nao pode ser vazio ou nulo" cadastrarComissao tema="CCJCC" politicos=""
-expectError "Erro ao cadastrar comissao: dni invalido" cadastrarComissao tema="CCJCC" politicos="051222222-A,051444444-0"
+expectError "Erro ao cadastrar comissao: dni invalido" cadastrarComissao tema="CFT" politicos="051222222-A,051444444-0"
 expectError "Erro ao cadastrar comissao: tema existente" cadastrarComissao tema="CCJCC" politicos="050000000-0"
 expectError "Erro ao cadastrar comissao: tema existente" cadastrarComissao tema="CCJCC" politicos="051222222-0,051111111-0"
 
