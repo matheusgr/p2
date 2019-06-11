@@ -22,8 +22,8 @@ cadastrarPEC dni="061222222-0" ano=2016 ementa="Permite a associacao sindical li
 
 expect "Projeto de Lei - PL 1/2016 - 061222222-0 - Institui a semana da nutricao nas escolas - Conclusiva - EM VOTACAO (CCJC)" exibirProjeto codigo="PL 1/2016"
 expect "Projeto de Lei - PL 2/2016 - 061222222-0 - Institui a semana do carinho nas escolas - EM VOTACAO (CCJC)" exibirProjeto codigo="PL 2/2016"
-expect "Projeto de Lei Complementar - PLP 1/2016 - 061444444-0 - Regulamenta a tributacao de apostas eletronicas - 153 - EM VOTAÇÃO (CCJC)" exibirProjeto codigo="PLP 1/2016"
-expect "Projeto de Emenda Constitucional - PEC 1/2019 - 061222222-0 - Permite a associacao sindical livre e com estrutura hierarquica - 7, 8 - EM VOTACAO (CCJC)" exibirProjeto codigo="PEC 1/2016"
+expect "Projeto de Lei Complementar - PLP 1/2016 - 061444444-0 - Regulamenta a tributacao de apostas eletronicas - 153 - EM VOTACAO (CCJC)" exibirProjeto codigo="PLP 1/2016"
+expect "Projeto de Emenda Constitucional - PEC 1/2016 - 061222222-0 - Permite a associacao sindical livre e com estrutura hierarquica - 7, 8 - EM VOTACAO (CCJC)" exibirProjeto codigo="PEC 1/2016"
 
 # DNI, ementa, interesses, url, artigos vazios
 expectError "Erro ao cadastrar projeto: autor nao pode ser vazio ou nulo" cadastrarPL dni="" ano=2016 ementa="Institui a semana da nutricao nas escolas" interesses="saude,educacao basica" url="http://example.com/semana_saude" conclusivo=true
@@ -72,8 +72,8 @@ cadastrarPEC dni="061222222-0" ano=2016 ementa="Permite a associacao sindical li
 
 expect "Projeto de Lei - PL 3/2016 - 061222222-0 - Institui a semana da nutricao nas escolas - Conclusiva - EM VOTACAO (CCJC)" exibirProjeto codigo="PL 3/2016"
 expect "Projeto de Lei - PL 4/2016 - 061222222-0 - Institui a semana do carinho nas escolas - EM VOTACAO (CCJC)" exibirProjeto codigo="PL 4/2016"
-expect "Projeto de Lei Complementar - PLP 2/2016 - 061444444-0 - Regulamenta a tributacao de apostas eletronicas - 153 - EM VOTAÇÃO (CCJC)" exibirProjeto codigo="PLP 2/2016"
-expect "Projeto de Emenda Constitucional - PEC 2/2019 - 061222222-0 - Permite a associacao sindical livre e com estrutura hierarquica - 7, 8 - EM VOTACAO (CCJC)" exibirProjeto codigo="PEC 2/2016"
+expect "Projeto de Lei Complementar - PLP 2/2016 - 061444444-0 - Regulamenta a tributacao de apostas eletronicas - 153 - EM VOTACAO (CCJC)" exibirProjeto codigo="PLP 2/2016"
+expect "Projeto de Emenda Constitucional - PEC 2/2016 - 061222222-0 - Permite a associacao sindical livre e com estrutura hierarquica - 7, 8 - EM VOTACAO (CCJC)" exibirProjeto codigo="PEC 2/2016"
 
 
 
