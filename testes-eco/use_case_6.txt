@@ -60,10 +60,10 @@ expectError "Erro ao cadastrar projeto: pessoa nao eh deputado" cadastrarPLP dni
 expectError "Erro ao cadastrar projeto: pessoa nao eh deputado" cadastrarPEC dni="061111111-0" ano=2016 ementa="Permite a associacao sindical livre e com estrutura hierarquica" interesses="trabalho" url="https://example.com/sindicato/algo.html" artigos="7,8"
 
 #Ano anterior a 1988 ou posterior ao ano atual
-cadastrarPL dni="061222222-0" ano=1987 ementa="Institui a semana da nutricao nas escolas" interesses="saude,educacao basica" url="http://example.com/semana_saude" conclusivo=true
-cadastrarPL dni="061222222-0" ano=3000 ementa="Institui a semana do carinho nas escolas" interesses="cidadania,educacao basica" url="http://example.com/semana_cidadania" conclusivo=false
-cadastrarPLP dni="061444444-0" ano=2020 ementa="Regulamenta a tributacao de apostas eletronicas" interesses="fiscal,jogos" url="https://example.net/jogos%40aposta" artigos="153"
-cadastrarPEC dni="061222222-0" ano=-1 ementa="Permite a associacao sindical livre e com estrutura hierarquica" interesses="trabalho" url="https://example.com/sindicato/algo.html" artigos="7,8"
+expectError "Erro ao cadastrar projeto: ano anterior a 1988" cadastrarPL dni="061222222-0" ano=1987 ementa="Institui a semana da nutricao nas escolas" interesses="saude,educacao basica" url="http://example.com/semana_saude" conclusivo=true
+expectError "Erro ao cadastrar projeto: ano posterior ao ano atual" cadastrarPL dni="061222222-0" ano=3000 ementa="Institui a semana do carinho nas escolas" interesses="cidadania,educacao basica" url="http://example.com/semana_cidadania" conclusivo=false
+expectError "Erro ao cadastrar projeto: ano posterior ao ano atual" cadastrarPLP dni="061444444-0" ano=2020 ementa="Regulamenta a tributacao de apostas eletronicas" interesses="fiscal,jogos" url="https://example.net/jogos%40aposta" artigos="153"
+expectError "Erro ao cadastrar projeto: ano anterior a 1988" cadastrarPEC dni="061222222-0" ano=-1 ementa="Permite a associacao sindical livre e com estrutura hierarquica" interesses="trabalho" url="https://example.com/sindicato/algo.html" artigos="7,8"
 
 cadastrarPL dni="061222222-0" ano=2016 ementa="Institui a semana da nutricao nas escolas" interesses="saude,educacao basica" url="http://example.com/semana_saude" conclusivo=true
 cadastrarPL dni="061222222-0" ano=2016 ementa="Institui a semana do carinho nas escolas" interesses="cidadania,educacao basica" url="http://example.com/semana_cidadania" conclusivo=false
