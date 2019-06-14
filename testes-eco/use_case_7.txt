@@ -1,6 +1,5 @@
 # WORK IN PROGRESS....
 
-
 # limpa qualquer arquivo ou dado persistido anteriormente
 limparSistema
 
@@ -65,8 +64,9 @@ expect true votarComissao codigo=${plc} statusGovernista="GOVERNISTA" proximoLoc
 expect "Projeto de Lei - PL 1/2016 - 071222222-0 - Ementa PL conc - Conclusiva - EM VOTACAO (CTF)" exibirProjeto codigo={plc}
 expect "POL: M2 - 071222222-0 (PE) - PartidoGov - Interesses: educacao,seguranca publica,saude - 29/02/2016 - 0 Leis" exibirPessoa dni="071222222-0"
 expect false votarComissao codigo=${plc} statusGovernista="GOVERNISTA" proximoLocal="-"
+# 0 leis aprovadas ate o momento...:
 expect "POL: M2 - 071222222-0 (PE) - PartidoGov - Interesses: educacao,seguranca publica,saude - 29/02/2016 - 0 Leis" exibirPessoa dni="071222222-0"
-expect "Projeto de Lei - PL 1/2016 - 071222222-0 - Interesses: educacao,seguranca publica,saude - Ementa PL conc - Conclusiva - ARQUIVADA" exibirProjeto codigo={plc}
+expect "Projeto de Lei - PL 1/2016 - 071222222-0 - Interesses: educacao,seguranca publica,saude - Ementa PL conc - Conclusiva - ARQUIVADO" exibirProjeto codigo={plc}
 expectError "Erro ao votar proposta: tramitacao encerrada" votarComissao codigo=${plc} statusGovernista="GOVERNISTA" proximoLocal="-"
 expectError "Erro ao votar proposta: tramitacao encerrada" votarPlenario codigo=${plc} statusGovernista="GOVERNISTA" presentes="071111111-0,071222222-0,071333333-0,071444444-0,071555555-0,071666666-0,071777777-0,071888888-0,071999999-0,071000000-0"
 
@@ -77,6 +77,7 @@ expectError "Erro ao votar proposta: tramitacao encerrada" votarComissao codigo=
 # PL Conc Livre - governo aprovado
 expect true votarComissao codigo=${plcgov} statusGovernista="GOVERNISTA" proximoLocal="CGOV"
 expect true votarComissao codigo=${plcgov} statusGovernista="GOVERNISTA" proximoLocal="-"
+# 1 lei aprovada ate o momento...:
 expect "POL: M2 - 071222222-0 (PE) - PartidoGov - Interesses: educacao,seguranca publica,saude - 29/02/2016 - 1 Leis" exibirPessoa dni="071222222-0"
 expect "Projeto de Lei - PL 3/2016 - 071222222-0 - Ementa PL conc - Conclusiva - APROVADO" exibirProjeto codigo={plc}
 
@@ -105,28 +106,49 @@ expectError "Erro ao votar proposta: tramitacao encerrada" votarPlenario codigo=
 expect "POL: M3 - 071333333-0 (PI) - PartidoGov - Interesses: saude,seguranca publica,trabalho - 29/02/2016 - 1 Leis" exibirPessoa dni="071333333-0"
 
 ########## PLP
+
 expect true votarComissao codigo=${plp} statusGovernista="GOVERNISTA" proximoLocal="CGOV"
 expect true votarComissao codigo=${plp} statusGovernista="GOVERNISTA" proximoLocal="plenario"
 expectError "Erro ao votar proposta: proposta encaminhada ao plenario" votarComissao codigo=${plp} statusGovernista="GOVERNISTA" proximoLocal="plenario"
 expect false votarPlenario codigo=${plp} statusGovernista="OPOSICAO" presentes="071111111-0,071222222-0,071333333-0,071444444-0,071555555-0,071999999-0"
 expectError "Erro ao votar proposta: tramitacao encerrada" votarPlenario codigo=${plp} statusGovernista="OPOSICAO" presentes="071111111-0,071222222-0,071333333-0,071444444-0,071555555-0,071999999-0"
-#expect "APROVADO (CCJC), APROVADO (CGOV), REJEITADO (Plenario - 1o turno)" exibirTramitacao codigo=${plp}
+expect "Projeto de Lei - PLP 2/2016 - 071222222-0 - Ementa PLP - ARQUIVADO" exibirProjeto codigo={plp2}
+expect "POL: M2 - 071222222-0 (PE) - PartidoGov - Interesses: educacao,seguranca publica,saude - 29/02/2016 - 1 Leis" exibirPessoa dni="071222222-0"
 
-
-
-plp2=cadastrarPLP dni="071222222-0" ano=2016 ementa="Ementa PLP" interesses="saude" url="https://example.net/jogos%40aposta" artigos="153"
+plp2=cadastrarPLP dni="071222222-0" ano=2013 ementa="Ementa PLP" interesses="saude" url="https://example.net/jogos%40aposta" artigos="153"
 expect true votarComissao codigo=${plp2} statusGovernista="GOVERNISTA" proximoLocal="CGOV"
 expect true votarComissao codigo=${plp2} statusGovernista="GOVERNISTA" proximoLocal="plenario"
+expect "Projeto de Lei - PLP 1/2013 - 071222222-0 - Ementa PLP - EM VOTACAO (Plenario - 1o turno)" exibirProjeto codigo={plp2}
+# 1º turno
 expect true votarPlenario codigo=${plp2} statusGovernista="LIVRE" presentes="071111111-0,071222222-0,071333333-0,071444444-0,071555555-0,071666666-0"
-expect "POL: M3 - 071333333-0 (PI) - PartidoGov - Interesses: saude,seguranca publica,trabalho - 29/02/2016 - 2 Leis" exibirPessoa dni="071333333-0"
-
+expect "Projeto de Lei - PLP 1/2013 - 071222222-0 - Ementa PLP - EM VOTACAO (Plenario - 2o turno)" exibirProjeto codigo={plp2}
+# 2º turno
+expect true votarPlenario codigo=${plp2} statusGovernista="LIVRE" presentes="071111111-0,071222222-0,071333333-0,071444444-0,071555555-0,071666666-0"
+expect "Projeto de Lei - PLP 1/2013 - 071222222-0 - Ementa PLP - APROVADO" exibirProjeto codigo={plp2}
+expect "POL: M2 - 071222222-0 (PE) - PartidoGov - Interesses: educacao,seguranca publica,saude - 29/02/2016 - 2 Leis" exibirPessoa dni="071222222-0"
 
 ########## PEC
 
+expect true votarComissao codigo=${pec} statusGovernista="GOVERNISTA" proximoLocal="CGOV"
+expect true votarComissao codigo=${pec} statusGovernista="GOVERNISTA" proximoLocal="plenario"
+expectError "Erro ao votar proposta: proposta encaminhada ao plenario" votarComissao codigo=${plp} statusGovernista="GOVERNISTA" proximoLocal="plenario"
+expect false votarPlenario codigo=${pec} statusGovernista="OPOSICAO" presentes="071111111-0,071222222-0,071333333-0,071444444-0,071555555-0,071999999-0"
+expectError "Erro ao votar proposta: tramitacao encerrada" votarPlenario codigo=${plp} statusGovernista="OPOSICAO" presentes="071111111-0,071222222-0,071333333-0,071444444-0,071555555-0,071999999-0"
+expect "Projeto de Lei - PEC 1/2016 - 071222222-0 - Ementa PEC - ARQUIVADO" exibirProjeto codigo={plp2}
+expect "POL: M2 - 071222222-0 (PE) - PartidoGov - Interesses: educacao,seguranca publica,saude - 29/02/2016 - 2 Leis" exibirPessoa dni="071222222-0"
 
+pec2=cadastrarPEC dni="071222222-0" ano=2016 ementa="Ementa PEC" interesses="" url="https://example.com/sindicato/algo.html" artigos="7,8"
 
-#expect "APROVADO (CCJC), REJEITADO (Educacao), EM VOTACAO (Plenario)" exibirTramitacao codigo=
-#expect "APROVADO (CCJC), REJEITADO (Educacao), APROVADO (Plenario - 1o turno), REJEITADO (Plenario - 2o turno)" exibirTramitacao codigo=
+expect true votarComissao codigo=${pec2} statusGovernista="GOVERNISTA" proximoLocal="CGOV"
+expect true votarComissao codigo=${pec2} statusGovernista="GOVERNISTA" proximoLocal="plenario"
+expect "Projeto de Lei - PEC 2/2016 - 071222222-0 - Ementa PEC - EM VOTACAO (Plenario - 1o turno)" exibirProjeto codigo={pec2}
+# 1º turno
+expect true votarPlenario codigo=${plp2} statusGovernista="LIVRE" presentes="071111111-0,071222222-0,071333333-0,071444444-0,071555555-0,071666666-0,071777777-0"
+expect "Projeto de Lei - PEC 2/2016 - 071222222-0 - Ementa PEC - EM VOTACAO (Plenario - 2o turno)" exibirProjeto codigo={pec2}
+# 2º turno
+expect true votarPlenario codigo=${plp2} statusGovernista="LIVRE" presentes="071111111-0,071222222-0,071333333-0,071444444-0,071555555-0,071666666-0,071777777-0"
+expect "Projeto de Lei - PEC 2/2016 - 071222222-0 - Ementa PEC - APROVADO" exibirProjeto codigo={pec2}
+expect "POL: M2 - 071222222-0 (PE) - PartidoGov - Interesses: educacao,seguranca publica,saude - 29/02/2016 - 3 Leis" exibirPessoa dni="071222222-0"
 
 
 # salva o sistema em arquivos
