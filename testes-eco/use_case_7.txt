@@ -1,6 +1,7 @@
 # WORK IN PROGRESS....
 
 # limpa qualquer arquivo ou dado persistido anteriormente
+# implemente esse metodo ou execute apenas a US7 para testá-la
 limparSistema
 
 # carrega o sistema
@@ -31,7 +32,7 @@ cadastrarDeputado dni="071000000-0" dataDeInicio="29022016"
 plc=cadastrarPL dni="071222222-0" ano=2016 ementa="Ementa PL conc" interesses="saude,educacao basica" url="http://example.com/semana_saude" conclusivo=true
 plcopo=cadastrarPL dni="071222222-0" ano=2016 ementa="Ementa PL conc" interesses="saude,educacao basica" url="http://example.com/semana_saude" conclusivo=true
 plcgov=cadastrarPL dni="071222222-0" ano=2016 ementa="Ementa PL conc" interesses="saude,educacao basica" url="http://example.com/semana_saude" conclusivo=true
-plcaude=cadastrarPL dni="071222222-0" ano=2016 ementa="Ementa PL conc" interesses="saude" url="http://example.com/semana_saude" conclusivo=true
+plcsaude=cadastrarPL dni="071222222-0" ano=2016 ementa="Ementa PL conc" interesses="saude" url="http://example.com/semana_saude" conclusivo=true
 plcnutri=cadastrarPL dni="071222222-0" ano=2016 ementa="Ementa PL conc" interesses="nutricao" url="http://example.com/semana_saude" conclusivo=true
 
 plp=cadastrarPLP dni="071222222-0" ano=2016 ementa="Ementa PLP" interesses="fiscal,jogos" url="https://example.net/jogos%40aposta" artigos="153"
@@ -66,7 +67,7 @@ expect "POL: M2 - 071222222-0 (PE) - PartidoGov - Interesses: educacao,seguranca
 expect false votarComissao codigo=${plc} statusGovernista="GOVERNISTA" proximoLocal="-"
 # 0 leis aprovadas ate o momento...:
 expect "POL: M2 - 071222222-0 (PE) - PartidoGov - Interesses: educacao,seguranca publica,saude - 29/02/2016 - 0 Leis" exibirPessoa dni="071222222-0"
-expect "Projeto de Lei - PL 1/2016 - 071222222-0 - Interesses: educacao,seguranca publica,saude - Ementa PL conc - Conclusiva - ARQUIVADO" exibirProjeto codigo={plc}
+expect "Projeto de Lei - PL 1/2016 - 071222222-0 - Ementa PL conc - Conclusiva - ARQUIVADO" exibirProjeto codigo={plc}
 expectError "Erro ao votar proposta: tramitacao encerrada" votarComissao codigo=${plc} statusGovernista="GOVERNISTA" proximoLocal="-"
 expectError "Erro ao votar proposta: tramitacao encerrada" votarPlenario codigo=${plc} statusGovernista="GOVERNISTA" presentes="071111111-0,071222222-0,071333333-0,071444444-0,071555555-0,071666666-0,071777777-0,071888888-0,071999999-0,071000000-0"
 
