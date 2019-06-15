@@ -58,6 +58,13 @@ cadastrarComissao tema="CGOV" politicos="071111111-0,071222222-0,071333333-0,071
 # 5 da oposicao
 cadastrarComissao tema="COPO" politicos="071666666-0,071777777-0,071888888-0,071999999-0,071000000-0"
 
+# Teste de Erros
+
+expectError "Erro ao votar proposta: projeto inexistente" votarComissao codigo="PP 4/30" statusGovernista="GOVERNISTA" proximoLocal="CTF"
+expectError "Erro ao votar proposta: status invalido" votarComissao codigo="PP 4/30" statusGovernista="ILLUMINATI" proximoLocal="CTF"
+expectError "Erro ao votar proposta: proximo local vazio" votarComissao codigo="PP 4/30" statusGovernista="ILLUMINATI" proximoLocal=""
+expectError "Erro ao votar proposta: tramitacao em comissao" votarPlenario codigo=${plc} statusGovernista="GOVERNISTA" presentes="071111111-0,071222222-0,071333333-0,071444444-0,071555555-0,071666666-0,071777777-0,071888888-0,071999999-0,071000000-0"
+
 ########## PL conclusivas
 
 # PL (Lei ordinaria conclusiva) - aprovada na CCJC e negada na CTF
@@ -95,6 +102,10 @@ plnc=cadastrarPL dni="071333333-0" ano=2016 ementa="Ementa PLnconc" interesses="
 expect true votarComissao codigo=${plnc} statusGovernista="GOVERNISTA" proximoLocal="CGOV"
 expect false votarComissao codigo=${plnc} statusGovernista="OPOSICAO" proximoLocal="plenario"
 expectError "Erro ao votar proposta: proposta encaminhada ao plenario" votarComissao codigo=${plnc} statusGovernista="GOVERNISTA" proximoLocal="plenario"
+
+# erro de quorum
+expectError "Erro ao votar proposta: quorum invalido" votarPlenario codigo=${plc} statusGovernista="GOVERNISTA" presentes="071111111-0"
+
 expect true votarPlenario codigo=${plnc} statusGovernista="GOVERNISTA" presentes="071111111-0,071222222-0,071333333-0,071444444-0,071555555-0,071666666-0,071777777-0,071888888-0,071999999-0"
 expectError "Erro ao votar proposta: tramitacao encerrada" votarPlenario codigo=${plnc} statusGovernista="GOVERNISTA" presentes="071111111-0,071222222-0,071333333-0,071444444-0,071555555-0,071666666-0"
 expect "POL: M3 - 071333333-0 (PI) - PartidoGov - Interesses: saude,seguranca publica,trabalho - 29/02/2016 - 1 Leis" exibirPessoa dni="071333333-0"
