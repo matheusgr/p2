@@ -36,7 +36,7 @@ plcsaude=cadastrarPL dni="071222222-0" ano=2016 ementa="Ementa PL conc" interess
 plcnutri=cadastrarPL dni="071222222-0" ano=2016 ementa="Ementa PL conc" interesses="nutricao" url="http://example.com/semana_saude" conclusivo=true
 
 plp=cadastrarPLP dni="071222222-0" ano=2016 ementa="Ementa PLP" interesses="fiscal,jogos" url="https://example.net/jogos%40aposta" artigos="153"
-pec=cadastrarPEC dni="071222222-0" ano=2016 ementa="Ementa PEC" interesses="" url="https://example.com/sindicato/algo.html" artigos="7,8"
+pec=cadastrarPEC dni="071222222-0" ano=2016 ementa="Ementa PEC" interesses="saude" url="https://example.com/sindicato/algo.html" artigos="7,8"
 
 expectError "Erro ao votar proposta: CCJC nao cadastrada" votarComissao codigo=${plc} statusGovernista="OPOSICAO" proximoLocal="CTF"
 expectError "Erro ao votar proposta: CCJC nao cadastrada" votarComissao codigo=${plp} statusGovernista="OPOSICAO" proximoLocal="CTF"
@@ -138,7 +138,7 @@ expectError "Erro ao votar proposta: tramitacao encerrada" votarPlenario codigo=
 expect "Projeto de Lei - PEC 1/2016 - 071222222-0 - Ementa PEC - ARQUIVADO" exibirProjeto codigo={plp2}
 expect "POL: M2 - 071222222-0 (PE) - PartidoGov - Interesses: educacao,seguranca publica,saude - 29/02/2016 - 2 Leis" exibirPessoa dni="071222222-0"
 
-pec2=cadastrarPEC dni="071222222-0" ano=2016 ementa="Ementa PEC" interesses="" url="https://example.com/sindicato/algo.html" artigos="7,8"
+pec2=cadastrarPEC dni="071222222-0" ano=2016 ementa="Ementa PEC" interesses="saude" url="https://example.com/sindicato/algo.html" artigos="7,8"
 
 expect true votarComissao codigo=${pec2} statusGovernista="GOVERNISTA" proximoLocal="CGOV"
 expect true votarComissao codigo=${pec2} statusGovernista="GOVERNISTA" proximoLocal="plenario"
