@@ -102,7 +102,7 @@ expect false votarComissao codigo=${plnc} statusGovernista="OPOSICAO" proximoLoc
 expectError "Erro ao votar proposta: proposta encaminhada ao plenario" votarComissao codigo=${plnc} statusGovernista="GOVERNISTA" proximoLocal="plenario"
 
 # erro de quorum
-expectError "Erro ao votar proposta: quorum invalido" votarPlenario codigo=${plc} statusGovernista="GOVERNISTA" presentes="071111111-0"
+expectError "Erro ao votar proposta: quorum invalido" votarPlenario codigo=${plnc} statusGovernista="GOVERNISTA" presentes="071111111-0"
 
 expect true votarPlenario codigo=${plnc} statusGovernista="GOVERNISTA" presentes="071111111-0,071222222-0,071333333-0,071444444-0,071555555-0,071666666-0,071777777-0,071888888-0,071999999-0"
 expectError "Erro ao votar proposta: tramitacao encerrada" votarPlenario codigo=${plnc} statusGovernista="GOVERNISTA" presentes="071111111-0,071222222-0,071333333-0,071444444-0,071555555-0,071666666-0"
@@ -141,9 +141,9 @@ expect "POL: M2 - 071222222-0 (PE) - PartidoGov - Interesses: educacao,seguranca
 
 expect true votarComissao codigo=${pec} statusGovernista="GOVERNISTA" proximoLocal="CGOV"
 expect true votarComissao codigo=${pec} statusGovernista="GOVERNISTA" proximoLocal="plenario"
-expectError "Erro ao votar proposta: proposta encaminhada ao plenario" votarComissao codigo=${plp} statusGovernista="GOVERNISTA" proximoLocal="plenario"
+expectError "Erro ao votar proposta: proposta encaminhada ao plenario" votarComissao codigo=${pec} statusGovernista="GOVERNISTA" proximoLocal="plenario"
 expect false votarPlenario codigo=${pec} statusGovernista="OPOSICAO" presentes="071111111-0,071222222-0,071333333-0,071444444-0,071555555-0,071999999-0,071000000-0"
-expectError "Erro ao votar proposta: tramitacao encerrada" votarPlenario codigo=${plp} statusGovernista="OPOSICAO" presentes="071111111-0,071222222-0,071333333-0,071444444-0,071555555-0,071999999-0"
+expectError "Erro ao votar proposta: tramitacao encerrada" votarPlenario codigo=${pec} statusGovernista="OPOSICAO" presentes="071111111-0,071222222-0,071333333-0,071444444-0,071555555-0,071999999-0"
 expect "Projeto de Emenda Constitucional - PEC 1/2016 - 071222222-0 - Ementa PEC - 7, 8 - ARQUIVADO" exibirProjeto codigo=${pec}
 expect "POL: M2 - 071222222-0 (PE) - PartidoGov - Interesses: educacao,seguranca publica,saude - 29/02/2016 - 3 Leis" exibirPessoa dni="071222222-0"
 
