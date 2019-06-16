@@ -1,5 +1,3 @@
-# WORK IN PROGRESS....
-
 # limpa qualquer arquivo ou dado persistido anteriormente
 # implemente esse metodo ou execute apenas a US7 para testá-la
 limparSistema
