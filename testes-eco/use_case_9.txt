@@ -1,0 +1,104 @@
+# carrega o sistema
+carregarSistema
+
+cadastrarPessoa nome="M1" dni="091111111-0" estado="PB" interesses="quidditch" partido="PartidoGov"
+cadastrarPessoa nome="M2" dni="091222222-0" estado="PE" interesses="educacao,seguranca publica,saude" partido="PartidoGov"
+cadastrarPessoa nome="M3" dni="091333333-0" estado="PI" interesses="saude,seguranca publica,trabalho" partido="PartidoGov"
+cadastrarPessoa nome="M4" dni="091444444-0" estado="PI" interesses="saude,seguranca publica,trabalho" partido="PartidoGov"
+cadastrarPessoa nome="M5" dni="091555555-0" estado="PI" interesses="nutricao" partido="PartidoGov"
+cadastrarPessoa nome="M6" dni="091666666-0" estado="RO" interesses="educacao,seguranca publica,saude" partido="PartidoOpo"
+cadastrarPessoa nome="M7" dni="091777777-0" estado="RO" interesses="educacao,seguranca publica,saude" partido="PartidoOpo"
+cadastrarPessoa nome="M8" dni="091888888-0" estado="RO" interesses="saude,seguranca publica,trabalho" partido="PartidoOpo"
+cadastrarPessoa nome="M9" dni="091999999-0" estado="RO" interesses="saude,seguranca publica,trabalho" partido="PartidoOpo"
+cadastrarPessoa nome="M0" dni="091000000-0" estado="RO" interesses="nutricao" partido="PartidoOpo"
+
+plcsaude9=cadastrarPL dni="071222222-0" ano=2016 ementa="Ementa PL conc" interesses="saude" url="http://example.com/semana_saude" conclusivo=false
+plcsaude9_old=cadastrarPL dni="071222222-0" ano=2013 ementa="Ementa PL conc" interesses="saude" url="http://example.com/semana_saude" conclusivo=false
+plcnutri9=cadastrarPL dni="071222222-0" ano=2016 ementa="Ementa PL conc" interesses="nutricao" url="http://example.com/semana_saude" conclusivo=false
+plpsaude9=cadastrarPLP dni="071222222-0" ano=2016 ementa="Ementa PLP" interesses="saude" url="https://example.net/jogos%40aposta" artigos="153"
+plpnutri9=cadastrarPLP dni="071222222-0" ano=2016 ementa="Ementa PLP" interesses="nutricao" url="https://example.net/jogos%40aposta" artigos="153"
+pecsaude9=cadastrarPEC dni="071222222-0" ano=2016 ementa="Ementa PEC" interesses="saude" url="https://example.com/sindicato/algo.html" artigos="7,8"
+pecnutri9=cadastrarPEC dni="071222222-0" ano=2016 ementa="Ementa PEC" interesses="nutricao" url="https://example.com/sindicato/algo.html" artigos="7,8"
+
+# SEM INTERESSE EM COMUM
+expect "" pegarPropostaRelacionada dni="091111111-0"
+
+# PEC PRIMEIRO
+expect ${pecsaude9} pegarPropostaRelacionada dni="091999999-0"
+expect ${pecnutri9} pegarPropostaRelacionada dni="091000000-0"
+
+# CONCLUSAO. EMPATE EM SAUDE, ANO MAIS ANTIGO
+# CONCLUSAO. EMPATE ME NUTRICAO, PRIMEIRA PROPOSTA CADASTRADA
+configurarEstrategiaPropostaRelacionada dni="091000000-0" estrategia="CONCLUSAO"
+configurarEstrategiaPropostaRelacionada dni="091999999-0" estrategia="CONCLUSAO"
+
+expect ${plcsaude9_old} pegarPropostaRelacionada dni="091999999-0"
+expect ${plcnutri9} pegarPropostaRelacionada dni="091000000-0"
+
+# plp avança
+expect true votarComissao codigo=${plpnutri9} statusGovernista="GOVERNISTA" proximoLocal="CGOV"
+expect ${plpnutri9} pegarPropostaRelacionada dni="091000000-0"
+
+# pec avança. ainda nenhuma no plenario, mas plp cadastrada primeiro
+expect true votarComissao codigo=${pecnutri9} statusGovernista="GOVERNISTA" proximoLocal="CGOV"
+expect ${plpnutri9} pegarPropostaRelacionada dni="091000000-0"
+
+# pec avança. 1 comissão a mais das demais
+expect true votarComissao codigo=${pecnutri9} statusGovernista="GOVERNISTA" proximoLocal="COPO"
+expect ${pecnutri9} pegarPropostaRelacionada dni="091000000-0"
+
+# plp no plenario
+expect true votarComissao codigo=${plpnutri9} statusGovernista="GOVERNISTA" proximoLocal="plenario"
+expect ${plpnutri9} pegarPropostaRelacionada dni="091000000-0"
+
+# pl no plenario. mais próxima do fim
+expect true votarComissao codigo=${plcnutri9} statusGovernista="GOVERNISTA" proximoLocal="plenario"
+expect ${plcnutri9} pegarPropostaRelacionada dni="091000000-0"
+
+# pl termina
+expect true votarPlenario codigo=${plcnutri9} statusGovernista="GOVERNISTA" presentes="071111111-0,071222222-0,071333333-0,071444444-0,071555555-0,071666666-0,071777777-0,071888888-0,071999999-0"
+expect ${plpnutri9} pegarPropostaRelacionada dni="091000000-0"
+
+### PEC no segundo turno, PLP no primeiro:
+expect true votarComissao codigo=${plpsaude9} statusGovernista="OPOSICAO" proximoLocal="plenario"
+expect true votarComissao codigo=${pecsaude9} statusGovernista="OPOSICAO" proximoLocal="plenario"
+expect true votarPlenario codigo=${pecsaude9} statusGovernista="LIVRE" presentes="071111111-0,071222222-0,071333333-0,071444444-0,071555555-0,071666666-0,071777777-0,071888888-0"
+expect ${pecsaude9} pegarPropostaRelacionada dni="091999999-0"
+
+configurarEstrategiaPropostaRelacionada dni="091000000-0" estrategia="APROVACAO"
+configurarEstrategiaPropostaRelacionada dni="091999999-0" estrategia="APROVACAO"
+
+# pec nutrição com mais aprovacoes
+expect ${pecnutri9} pegarPropostaRelacionada dni="091000000-0"
+
+# pec saude com mais aprovacoes (2)
+expect ${pecsaude9} pegarPropostaRelacionada dni="091999999-0"
+expect true votarComissao codigo=${plcsaude9} statusGovernista="GOVERNISTA" proximoLocal="CGOV"
+expect true votarComissao codigo=${plcsaude9} statusGovernista="GOVERNISTA" proximoLocal="COPO"
+expect true votarComissao codigo=${plcsaude9} statusGovernista="OPOSICAO" proximoLocal="plenario"
+
+# plc saude com 3 aprovacoes
+expect ${plcsaude9} pegarPropostaRelacionada dni="091999999-0"
+
+configurarEstrategiaPropostaRelacionada dni="091000000-0" estrategia="CONSTITUCIONAL"
+configurarEstrategiaPropostaRelacionada dni="091999999-0" estrategia="CONSTITUCIONAL"
+
+# PEC nutri encerrada, volta para PLP
+expect ${pecsaude9} pegarPropostaRelacionada dni="091999999-0"
+expect ${plpnutri9} pegarPropostaRelacionada dni="091000000-0"
+
+# Erros e precedencia
+expectError "Erro ao configurar estrategia: estrategia vazia" configurarEstrategiaPropostaRelacionada dni="091000000-0" estrategia=""
+expectError "Erro ao configurar estrategia: estrategia invalida" configurarEstrategiaPropostaRelacionada dni="091000000-0" estrategia="SEILAHQUALQUERUMACANSEIDOPROJETOBRINCADEIRABEIJOSGAUDS"
+expectError "Erro ao configurar estrategia: pessoa nao pode ser vazia ou nula" configurarEstrategiaPropostaRelacionada dni="" estrategia="CONCLUSAO"
+expectError "Erro ao configurar estrategia: dni invalido" configurarEstrategiaPropostaRelacionada dni="091000000-A" estrategia="CONCLUSAO"
+expectError "Erro ao configurar estrategia: pessoa nao pode ser vazia ou nula" configurarEstrategiaPropostaRelacionada dni="" estrategia=""
+expectError "Erro ao configurar estrategia: pessoa nao pode ser vazia ou nula" configurarEstrategiaPropostaRelacionada dni="" estrategia="POLIMORFISMO"
+expectError "Erro ao configurar estrategia: dni invalido" configurarEstrategiaPropostaRelacionada dni="091000000-A" estrategia=""
+expectError "Erro ao configurar estrategia: dni invalido" configurarEstrategiaPropostaRelacionada dni="091000000-A" estrategia="POLIMORFISMO"
+
+expectError "Erro ao pegar proposta relacionada: pessoa nao pode ser vazia ou nula" pegarPropostaRelacionada dni="091999999-0"
+expectError "Erro ao pegar proposta relacionada: dni invalido" pegarPropostaRelacionada dni=""
+
+# salva o sistema em arquivos
+salvarSistema
