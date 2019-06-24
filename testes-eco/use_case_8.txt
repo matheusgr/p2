@@ -38,7 +38,7 @@ expect "APROVADO (CCJC), APROVADO (CGOV), APROVADO (Plenario - 1o turno), APROVA
 
 ########## PEC
 
-expect "APROVADO (CCJC), APROVADO (CGOV), REJEITADO (Plenario - 1o turno)" codigo="PEC 1/2016"
+expect "APROVADO (CCJC), APROVADO (CGOV), REJEITADO (Plenario - 1o turno)" exibirTramitacao codigo="PEC 1/2016"
 expect "APROVADO (CCJC), APROVADO (CGOV), APROVADO (Plenario - 1o turno), APROVADO (Plenario - 2o turno)" exibirTramitacao codigo="PEC 2/2016"
 
 expectError "Erro ao exibir tramitacao: projeto inexistente" exibirTramitacao codigo="PP 3/2012"
