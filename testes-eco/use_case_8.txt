@@ -19,7 +19,7 @@ expect "APROVADO (CCJC), APROVADO (CGOV), REJEITADO (Plenario)" exibirTramitacao
 
 ########## PLP
 
-expect "APROVADO (CCJC), APROVADO (CGOV), APROVADO (Plenario - 1o turno), REJEITADO (Plenario - 2o turno)" exibirTramitacao codigo="PLP 1/2016"
+expect "APROVADO (CCJC), APROVADO (CGOV), REJEITADO (Plenario - 1o turno)" exibirTramitacao codigo="PLP 1/2016"
 
 plp3=cadastrarPLP dni="071222222-0" ano=2013 ementa="Ementa PLP" interesses="saude" url="https://example.net/jogos%40aposta" artigos="153"
 
