@@ -87,7 +87,8 @@ expect ${pecsaude9} pegarPropostaRelacionada dni="091999999-0"
 expect ${pecnutri9} pegarPropostaRelacionada dni="091000000-0"
 
 # PEC nutri encerrada, volta para PLP
-expect false votarComissao codigo=${pecnutri9} statusGovernista="OPOSICAO" proximoLocal="plenario"
+expect true votarComissao codigo=${pecnutri9} statusGovernista="OPOSICAO" proximoLocal="plenario"
+expect false votarPlenario codigo=${pecnutri9} statusGovernista="LIVRE" presentes="071111111-0,071222222-0,071333333-0,071444444-0,071555555-0,071666666-0,071777777-0,071888888-0"
 expect ${plpnutri9} pegarPropostaRelacionada dni="091000000-0"
 
 # Erros e precedencia
